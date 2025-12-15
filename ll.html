@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HASA Estate</title>
+
+<style>
+/* ---------------- RESET ---------------- */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ---------------- BODY ---------------- */
+body{
+    background:#0a0f1c;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* ---------------- ANIMATED BACKGROUND ---------------- */
+.bg-animation{
+    position:fixed;
+    inset:0;
+    z-index:-1;
+    background:linear-gradient(120deg,#0f2027,#203a43,#2c5364);
+    animation: gradientMove 10s infinite alternate;
+}
+@keyframes gradientMove{
+    0%{filter:hue-rotate(0deg);}
+    100%{filter:hue-rotate(40deg);}
+}
+
+/* ---------------- NAV ---------------- */
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 60px;
+    backdrop-filter:blur(12px);
+    background:rgba(255,255,255,0.05);
+    z-index:100;
+}
+
+nav h1{
+    font-size:1.8rem;
+    background:linear-gradient(45deg,#00c6ff,#f0f);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+nav a{
+    color:white;
+    margin-left:30px;
+    text-decoration:none;
+    position:relative;
+}
+nav a::after{
+    content:'';
+    position:absolute;
+    left:0;
+    bottom:-6px;
+    width:0;
+    height:2px;
+    background:#00c6ff;
+    transition:0.3s;
+}
+nav a:hover::after{
+    width:100%;
+}
+
+/* ---------------- HERO ---------------- */
+.hero{
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:20px;
+}
+
+.hero-content{
+    max-width:900px;
+    animation: fadeZoom 2s ease;
+}
+
+.hero h2{
+    font-size:4rem;
+    background:linear-gradient(45deg,#00c6ff,#ff00ff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero p{
+    font-size:1.3rem;
+    margin:30px 0;
+    opacity:0.9;
+}
+
+.hero button{
+    padding:18px 45px;
+    border-radius:50px;
+    border:none;
+    background:linear-gradient(45deg,#00c6ff,#ff00ff);
+    color:white;
+    font-size:1.1rem;
+    cursor:pointer;
+    box-shadow:0 0 40px rgba(255,0,255,0.4);
+    transition:0.4s;
+}
+.hero button:hover{
+    transform:scale(1.1);
+    box-shadow:0 0 70px rgba(0,198,255,0.7);
+}
+
+/* ---------------- SECTIONS ---------------- */
+section{
+    padding:120px 10%;
+}
+
+/* ---------------- PROPERTY CARDS ---------------- */
+.properties{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:40px;
+}
+
+.card{
+    background:rgba(255,255,255,0.08);
+    border-radius:25px;
+    backdrop-filter:blur(20px);
+    box-shadow:0 30px 60px rgba(0,0,0,0.5);
+    overflow:hidden;
+    transition:0.5s;
+    animation: floatUp 1.8s ease;
+}
+
+.card:hover{
+    transform:translateY(-20px) scale(1.05);
+    box-shadow:0 50px 90px rgba(0,198,255,0.6);
+}
+
+.card img{
+    width:100%;
+    height:240px;
+    object-fit:cover;
+}
+
+.card .info{
+    padding:25px;
+}
+
+.card h3{
+    font-size:1.5rem;
+}
+
+.card p{
+    opacity:0.8;
+    margin:10px 0;
+}
+
+.price{
+    font-size:1.6rem;
+    font-weight:bold;
+    color:#00c6ff;
+}
+
+/* ---------------- ABOUT ---------------- */
+.about{
+    text-align:center;
+    background:rgba(255,255,255,0.03);
+    backdrop-filter:blur(20px);
+    border-radius:40px;
+}
+
+.about p{
+    max-width:900px;
+    margin:auto;
+    font-size:1.2rem;
+    line-height:1.8;
+}
+
+/* ---------------- CONTACT ---------------- */
+form{
+    max-width:650px;
+    margin:auto;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(20px);
+    padding:50px;
+    border-radius:30px;
+    box-shadow:0 0 60px rgba(255,0,255,0.3);
+}
+
+input,textarea{
+    width:100%;
+    margin-bottom:20px;
+    padding:15px;
+    border-radius:10px;
+    border:none;
+    outline:none;
+}
+
+form button{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:40px;
+    background:linear-gradient(45deg,#00c6ff,#ff00ff);
+    color:white;
+    font-size:1.1rem;
+    cursor:pointer;
+}
+
+/* ---------------- FOOTER ---------------- */
+footer{
+    text-align:center;
+    padding:40px;
+    opacity:0.6;
+}
+
+/* ---------------- ANIMATIONS ---------------- */
+@keyframes fadeZoom{
+    from{opacity:0;transform:scale(0.7);}
+    to{opacity:1;transform:scale(1);}
+}
+
+@keyframes floatUp{
+    from{opacity:0;transform:translateY(60px);}
+    to{opacity:1;transform:translateY(0);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg-animation"></div>
+
+<nav>
+    <h1>LuxEstate</h1>
+    <div>
+        <a href="#">Home</a>
+        <a href="#">Properties</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </div>
+</nav>
+
+<div class="hero">
+    <div class="hero-content">
+        <h2>Experience Luxury Living</h2>
+        <p>Discover iconic homes designed for comfort, elegance, and prestige</p>
+        <button>Explore Properties</button>
+    </div>
+</div>
+
+<section>
+    <h2 style="text-align:center;font-size:3rem;margin-bottom:60px;">Featured Homes</h2>
+    <div class="properties">
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
+            <div class="info">
+                <h3>Skyline Penthouse</h3>
+                <p>3 Bed • City View • Smart Home</p>
+                <div class="price">$1,250,000</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1572120360610-d971b9d7767c">
+            <div class="info">
+                <h3>Oceanfront Villa</h3>
+                <p>5 Bed • Private Pool • Sea View</p>
+                <div class="price">$3,800,000</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994">
+            <div class="info">
+                <h3>Modern Family Home</h3>
+                <p>4 Bed • Garden • Garage</p>
+                <div class="price">$890,000</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="about">
+    <h2 style="font-size:3rem;margin-bottom:30px;">About LuxEstate</h2>
+    <p>
+        HASA Estate is a premium real estate platform specializing in luxury homes,
+        modern architecture, and elite living experiences. We connect discerning
+        buyers with properties that redefine lifestyle and sophistication.
+    </p>
+</section>
+
+<section>
+    <h2 style="text-align:center;font-size:3rem;margin-bottom:50px;">Contact Us</h2>
+    <form>
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email Address" required>
+        <textarea rows="5" placeholder="Message"></textarea>
+        <button>Send Message</button>
+    </form>
+</section>
+
+<footer>
+    © 2025 HASA Estate · Premium Real Estate Experience
+</footer>
+
+</body>
+</html>
